@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Angular Week</title>
-    <script src="scripts/angular.min.js"></script>
-    <script type="text/javascript" src="scripts/app.js"></script>
+    <script src="assets/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers.js"></script>
   </head>
   <body>
-    <div>
-
+    <div ng-controller="ToDoController as toDoListController">
+      <ul>
+        <li ng-repeat="todo in toDoListController.todos">
+          <p>{{todo.task}}: {{todo.completed ? "completed" : "not completed" }}
+        </li>
+      </ul>
     </div>
   </body>
 </html>
