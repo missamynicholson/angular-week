@@ -1,9 +1,10 @@
-toDoApp.controller("ToDoController", function() {
-  this.todos = [{task: "ToDo1", completed: true}, {task: "ToDo2", completed:false}];
-  this.addToDo = function (todoText){
-    this.todos.push({task: todoText, completed:false})
-  }
-  this.deleteToDo = function(item) {
-    this.todos.splice(this.todos.indexOf(item),1);
-  }
-});
+toDoApp.controller("ToDoController", ["toDoFactory", function (toDoFactory) {
+  var self = this;
+  self.todos = [{task: "ToDo1", completed: true}, {task: "ToDo2", completed:false}];
+  self.addToDo = function (todoText){
+    self.todos.push(toDoFactory.create(todoText));
+  };
+  self.deleteToDo = function(item) {
+    self.todos.splice(self.todos.indexOf(item),1);
+  };
+}]);

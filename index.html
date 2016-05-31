@@ -6,6 +6,7 @@
     <script src="assets/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
+      <script type="text/javascript" src="factories.js"></script>
   </head>
   <body>
     <div ng-controller="ToDoController as toDoListController">
@@ -15,6 +16,7 @@
           <button ng-click="toDoListController.deleteToDo(todo)">
             Delete
           </button>
+          <input ng-model="todo.completed" type="checkbox">
         </li>
       </ul>
         <button ng-click="toDoListController.addToDo(todoText)">Add todo:
