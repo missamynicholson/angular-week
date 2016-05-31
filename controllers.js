@@ -1,4 +1,4 @@
-toDoApp.controller("ToDoController", ["toDoFactory", function (toDoFactory) {
+toDoApp.controller("ToDoController", ["toDoFactory", "Retriever","$http", function (toDoFactory, Retriever, $http) {
   var self = this;
   self.todos = [{task: "ToDo1", completed: true}, {task: "ToDo2", completed:false}];
   self.addToDo = function (todoText){
@@ -7,4 +7,10 @@ toDoApp.controller("ToDoController", ["toDoFactory", function (toDoFactory) {
   self.deleteToDo = function(item) {
     self.todos.splice(self.todos.indexOf(item),1);
   };
+
+  console.log($http.get("http://quiet-beach-24792.herokuapp.com/todos.json"))
+
+  JSON.parse(Retriever.getAll()).forEach(function(item){
+    self.addToDo(item['text'])
+  })
 }]);

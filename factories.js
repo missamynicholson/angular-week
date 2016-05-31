@@ -1,7 +1,7 @@
 toDoApp.factory("toDoFactory", function () {
   return {
     create: function(taskString) {
-      return {task: taskString, completed: false};
+      return {task: taskString, completed: (typeof completed !== 'undefined') ? completed : false};
     }
   };
 });
