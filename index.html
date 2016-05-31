@@ -12,8 +12,14 @@
       <ul>
         <li ng-repeat="todo in toDoListController.todos">
           <p>{{todo.task}}: {{todo.completed ? "completed" : "not completed" }}
+          <button ng-click="toDoListController.deleteToDo(todo)">
+            Delete
+          </button>
         </li>
       </ul>
+        <button ng-click="toDoListController.addToDo(todoText)">Add todo:
+        </button>
+        <input ng-model="todoText">
     </div>
   </body>
 </html>
